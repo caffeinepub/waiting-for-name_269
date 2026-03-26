@@ -18,7 +18,6 @@ import {
   Menu,
   Plane,
   Shield,
-  Star,
   Stethoscope,
   X,
 } from "lucide-react";
@@ -28,7 +27,6 @@ import { useEffect, useRef, useState } from "react";
 const NAV_LINKS = [
   { label: "Features", href: "#features" },
   { label: "How It Works", href: "#how-it-works" },
-  { label: "Reviews", href: "#reviews" },
   { label: "FAQ", href: "#faq" },
 ];
 
@@ -102,32 +100,6 @@ const USE_CASES = [
     description: "Maintain peak alertness at altitude",
   },
 ];
-
-const TESTIMONIALS = [
-  {
-    name: "Marcus T.",
-    role: "Long-Haul Truck Driver",
-    avatar: "MT",
-    rating: 5,
-    text: "I've been driving routes from Houston to Chicago for 11 years. AwakeGuard alerted me twice on my last trip — both times I didn't even feel tired. This product is not a gimmick. It's saved my life.",
-  },
-  {
-    name: "Sarah K.",
-    role: "ICU Nurse, Night Shift",
-    avatar: "SK",
-    rating: 5,
-    text: "After a 14-hour shift, I still have a 45-minute commute home. AwakeGuard catches me every single time I start to drift. My family insisted I get it and I'm so glad they did.",
-  },
-  {
-    name: "Daniel R.",
-    role: "Pre-Med Student",
-    avatar: "DR",
-    rating: 5,
-    text: "Finals week I'm studying past 3am. It's not just for driving — the alerts help me stay focused during late study sessions too. Best ₹2499 I've ever spent.",
-  },
-];
-
-const STAR_INDICES = [1, 2, 3, 4, 5];
 
 const COMPANY_LINKS = [
   { label: "About Us", href: "#about" },
@@ -606,58 +578,6 @@ export default function App() {
                   </FadeInSection>
                 ))}
               </FadeInSection>
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials */}
-        <section id="reviews" className="py-32 bg-card/30">
-          <div className="max-w-7xl mx-auto px-6">
-            <FadeInSection className="text-center mb-16">
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 inline-block">
-                Testimonials
-              </span>
-              <h2 className="font-display text-4xl sm:text-5xl font-800 tracking-tight mb-4">
-                Real People. Real Stories.
-              </h2>
-              <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-                Thousands of customers trust AwakeGuard every day. Here are a
-                few of their stories.
-              </p>
-            </FadeInSection>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {TESTIMONIALS.map((t, i) => (
-                <FadeInSection key={t.name} delay={i * 0.15}>
-                  <div
-                    data-ocid={`testimonials.item.${i + 1}`}
-                    className="bg-card border border-border rounded-2xl p-6 flex flex-col gap-4 hover:border-primary/30 hover:shadow-glow-sm transition-all duration-300 h-full"
-                  >
-                    <div className="flex gap-1">
-                      {STAR_INDICES.slice(0, t.rating).map((n) => (
-                        <Star
-                          key={n}
-                          className="w-4 h-4 fill-primary text-primary"
-                        />
-                      ))}
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed flex-1">
-                      &ldquo;{t.text}&rdquo;
-                    </p>
-                    <div className="flex items-center gap-3 pt-2 border-t border-border">
-                      <div className="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-xs font-display font-700 text-primary">
-                        {t.avatar}
-                      </div>
-                      <div>
-                        <div className="font-semibold text-sm">{t.name}</div>
-                        <div className="text-xs text-muted-foreground">
-                          {t.role}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </FadeInSection>
-              ))}
             </div>
           </div>
         </section>
